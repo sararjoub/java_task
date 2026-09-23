@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurant Ordering System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            width: 350px;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            text-align: left;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            background-color: #e67e22;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* Result message */
+        .result {
+            margin-top: 20px;
+            padding: 12px;
+            background-color: #f8f8f8;
+            border-radius: 6px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Restaurant Order</h1>
+
+        <label for="customerName">Customer Name:</label>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Enter your name"
+        >
+
+        <label for="order">Choose your order:</label>
+
+        <select id="order">
+            <option value="Burger">Burger</option>
+            <option value="Shawarma">Shawarma</option>
+            <option value="Zinger">Zinger</option>
+        </select>
+
+        <button id="submitButton">
+            Submit Order
+        </button>
+
+        <div class="result" id="result">
+            Your order will appear here.
+        </div>
+
+    </div>
+
+
+    <script>
+
+        // ==========================================
+        // 1. getElementById()
+        // ==========================================
+
+        const customerName = document.getElementById("customerName");
+        const order = document.getElementById("order");
+        const result = document.getElementById("result");
+        const submitButton = document.getElementById("submitButton");
+
+
+        // ==========================================
+        // 2. getElementsByTagName()
+        // ==========================================
+
+        const buttons = document.getElementsByTagName("button");
+
+
+        // ==========================================
+        // 3. getElementsByClassName()
+        // ==========================================
+
+        const resultBox = document.getElementsByClassName("result");
+
+
+        // ==========================================
+        // 4. querySelector()
+        // ==========================================
+
+        const title = document.querySelector("h1");
+
+
+        submitButton.onclick = function () {
+
+            // Get the customer's name
+            const name = customerName.value;
+
+            // Get the selected order
+            const selectedOrder = order.value;
+
+            // Display the result
+            result.innerHTML =
+                "Hello " + name + "! Your order is " + selectedOrder + ".";
+        };
+
+
+        submitButton.onmouseover = function () {
+
+            submitButton.style.backgroundColor = "#d35400";
+
+        };
+
+        submitButton.onmouseout = function () {
+
+            submitButton.style.backgroundColor = "#e67e22";
+
+        };
+
+    </script>
+
+</body>
+</html>

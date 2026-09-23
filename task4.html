@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Make Circle / Make Square</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #myImage {
+            width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 0;
+
+            margin-bottom: 25px;
+        }
+
+        button {
+            padding: 12px 25px;
+            margin: 5px;
+            border: none;
+            border-radius: 6px;
+            background-color: #3498db;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Change Image Shape</h1>
+
+    <br>
+
+    <img
+        id="myImage"
+        src="sun.JPG"
+        alt="Image"
+    >
+
+    <br>
+
+    <button id="circleButton">
+        Make Circle
+    </button>
+
+    <button id="squareButton">
+        Make Square
+    </button>
+
+
+    <script>
+
+        const image = document.getElementById("myImage");
+
+        const circleButton = document.getElementById("circleButton");
+
+        const squareButton = document.getElementById("squareButton");
+
+        circleButton.onclick = function () {
+
+            image.style.borderRadius = "50%";
+
+        };
+
+        squareButton.onclick = function () {
+
+            image.style.borderRadius = "0";
+
+        };
+
+    </script>
+
+</body>
+</html>
