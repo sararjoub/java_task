@@ -16,7 +16,6 @@ function reverseNumber(number) {
     return reversed;
 }
 
-console.log("Q1:");
 console.log(reverseNumber(532443));
 
 
@@ -83,7 +82,6 @@ function Agechecker(age) {
 
 }
 
-console.log("Q4:");
 
 Agechecker(20);
 Agechecker(15);

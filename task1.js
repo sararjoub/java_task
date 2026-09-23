@@ -1,5 +1,5 @@
 
-const menu = [
+let menu = [
     {
         name: "Burger",
         price: 4,
@@ -13,114 +13,104 @@ const menu = [
         available: true
     },
     {
-        name: "Chicken",
-        price: 3,
-        category: "Main Dish",
-        available: false
-    },
-    {
         name: "Pasta",
         price: 6,
         category: "Italian",
-        available: true
+        available: false
     },
     {
         name: "Salad",
         price: 2,
         category: "Healthy",
+        available: true
+    },
+    {
+        name: "Chicken",
+        price: 4,
+        category: "Main",
         available: false
     }
 ];
 
-
 function showMenu() {
 
-    console.log("---------------Menu --------------");
+    document.body.innerHTML="<h2> Menu </h2>"; 
 
     for (let i = 0; i < menu.length; i++) {
 
-        console.log(
-            `${menu[i].name} - $${menu[i].price} - ${menu[i].category} - Available: ${menu[i].available}`
+        document.write(
+            "<p>" +
+            menu[i].name +
+            " ||| $" + menu[i].price +
+            " |||" + menu[i].category +
+            " ||| Available: " + menu[i].available +
+            "</p>"
         );
     }
 }
 
+showMenu();
 
+setTimeout(function () {
 
-function selectFood() {
+    let foodName = prompt("Enter food name:");
 
-    let selectedFood;
+    let selectedFood = null;
 
-    // Keep asking until an available food is selected
-    while (!selectedFood) {
+    while (selectedFood === null) {
 
-        let foodName = prompt("Enter food name:");
+        let found = false;
 
         for (let i = 0; i < menu.length; i++) {
 
-            // Skip unavailable food
-            if (!menu[i].available) {
+            if (menu[i].available === false) {
                 continue;
             }
 
             if (menu[i].name.toLowerCase() === foodName.toLowerCase()) {
 
                 selectedFood = menu[i];
+                found = true;
 
-                
                 break;
             }
         }
 
-        // If food was not found
-        if (!selectedFood) {
-            alert("Food not found or unavailable. Please try again.");
+        if (!found) {
+            foodName = prompt(
+                "Food is not available. Please enter another food name:"
+            );
         }
     }
 
-    return selectedFood;
-}
+
+    document.body.innerHTML += "<h2>Selected Food</h2>";
+
+    for (let property in selectedFood) {
+
+        document.body.innerHTML +=
+            property + ": " +
+            selectedFood[property] +
+            "<br>";
+    }
 
 
+    let quantity = Number(prompt("Enter quantity:"));
 
-showMenu();
+    let totalPrice = selectedFood.price * quantity;
 
+    document.body.innerHTML += "<h2>Final Order</h2>";
 
+    document.body.innerHTML +=
+        "Food: " + selectedFood.name + "<br>";
 
+    document.body.innerHTML +=
+        "Quantity: " + quantity + "<br>";
 
-const selectedFood = selectFood();
+    document.body.innerHTML +=
+        "Price: $" + selectedFood.price + "<br>";
 
+    document.body.innerHTML +=
+        "Total Price: $" + totalPrice;
 
-console.log("===== SELECTED FOOD =====");
-
-for (let property in selectedFood) {
-
-    console.log(property + ": " + selectedFood[property]);
-}
-
-
-let quantity = Number(prompt("Enter quantity:"));
-
-
-// Make sure quantity is valid
-while (quantity <= 0 || isNaN(quantity)) {
-
-    quantity = Number(prompt("Please enter a valid quantity:"));
-}
-
-
-const totalPrice = selectedFood.price * quantity;
-
-
-
-document.write("<h1>Restaurant Order</h1>");
-
-document.write("<p><strong>Food:</strong> " + selectedFood.name + "</p>");
-
-document.write("<p><strong>Category:</strong> " + selectedFood.category + "</p>");
-
-document.write("<p><strong>Price:</strong> $" + selectedFood.price + "</p>");
-
-document.write("<p><strong>Quantity:</strong> " + quantity + "</p>");
-
-document.write("<p><strong>Total Price:</strong> $" + totalPrice + "</p>");
+}, 500);
