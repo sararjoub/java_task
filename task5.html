@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Text Editor</title>
+
+    <style>
+        body {
+            margin: 20px;
+            font-family: Arial, sans-serif;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        select {
+            height: 24px;
+            font-size: 14px;
+        }
+
+        label {
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        textarea {
+            width: 500px;
+            height: 120px;
+            resize: none;
+            padding: 10px;
+            font-family: "Times New Roman";
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="toolbar">
+
+        <select id="fontFamily">
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+        
+        </select>
+
+        <select id="fontSize">
+            <option value="14px">14px</option>
+            <option value="18px">18px</option>
+            <option value="24px">24px</option>
+            <option value="30px">30px</option>
+        </select>
+
+        <label>
+            <input type="checkbox" id="italic">
+            Italic
+        </label>
+        <label>
+            <input type="checkbox" id="bold">
+            Bold
+        </label>
+
+        <label>
+            <input type="checkbox" id="underline">
+            Underline
+        </label>
+
+    </div>
+
+    <textarea id="textBox">the quick brown fox over the lazy dog</textarea>
+
+
+    <script>
+
+        const textBox = document.getElementById("textBox");
+
+        const fontFamily = document.getElementById("fontFamily");
+        const fontSize = document.getElementById("fontSize");
+
+        const italic = document.getElementById("italic");
+        const bold = document.getElementById("bold");
+        const underline = document.getElementById("underline");
+
+
+        function changeTextStyle() {
+
+           
+            textBox.style.fontFamily = fontFamily.value;
+
+           
+            textBox.style.fontSize = fontSize.value;
+
+            if (italic.checked) {
+                textBox.style.fontStyle = "italic";
+            } else {
+                textBox.style.fontStyle = "normal";
+            }
+            if (bold.checked) {
+                textBox.style.fontWeight = "bold";
+            } else {
+                textBox.style.fontWeight = "normal";
+            }
+
+            if (underline.checked) {
+                textBox.style.textDecoration = "underline";
+            } else {
+                textBox.style.textDecoration = "none";
+            }
+        }
+
+        fontFamily.addEventListener("change", changeTextStyle);
+        fontSize.addEventListener("change", changeTextStyle);
+
+        italic.addEventListener("change", changeTextStyle);
+        bold.addEventListener("change", changeTextStyle);
+        underline.addEventListener("change", changeTextStyle);
+
+    </script>
+
+</body>
+</html>
