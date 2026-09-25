@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Restaurant Ordering System</title>
+
+    <link rel="stylesheet" href="task6.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>Restaurant Order</h1>
+
+        <form id="orderForm">
+
+            <!-- Username -->
+            <label for="username">Username:</label>
+            <input
+                type="text"
+                id="username"
+                placeholder="Enter your username"
+            >
+
+            <!-- Password -->
+            <label for="password">Password:</label>
+            <input
+                type="password"
+                id="password"
+                placeholder="Enter your password"
+            >
+
+            <!-- Phone -->
+            <label for="phone">Phone Number:</label>
+            <input
+                type="text"
+                id="phone"
+                placeholder="07XXXXXXXX"
+            >
+
+            <!-- Order -->
+            <label for="order">Choose your order:</label>
+
+            <select id="order">
+                <option value="Burger">Burger</option>
+                <option value="Shawarma">Shawarma</option>
+                <option value="Zinger">Zinger</option>
+            </select>
+
+            <!-- Submit -->
+            <button type="submit" id="submitButton">
+                Submit Order
+            </button>
+
+        </form>
+
+        <!-- Results -->
+        <div class="result" id="result">
+            Your information will appear here.
+        </div>
+
+    </div>
+
+    <script src="task6.js"></script>
+
+</body>
+
+</html>
