@@ -1,18 +1,18 @@
 
+//get element from html
+let form = document.getElementById("orderForm");
 
-const form = document.getElementById("orderForm");
+let username = document.getElementById("username");
 
-const username = document.getElementById("username");
+let password = document.getElementById("password");
 
-const password = document.getElementById("password");
+let phone = document.getElementById("phone");
 
-const phone = document.getElementById("phone");
+let order = document.getElementById("order");
 
-const order = document.getElementById("order");
+let result = document.getElementById("result");
 
-const result = document.getElementById("result");
-
-
+//when the form is submited
 
 form.onsubmit = function (event) {
 
@@ -22,31 +22,31 @@ form.onsubmit = function (event) {
 
     // Get values
 
-    const usernameValue = username.value;
+    let usernameValue = username.value;
 
-    const passwordValue = password.value;
+    let passwordValue = password.value;
 
-    const phoneValue = phone.value;
+    let phoneValue = phone.value;
 
-    const orderValue = order.value;
+    let orderValue = order.value;
 
 
 
-    // Username:
+    // regex-- Username:
     // Not empty and no spaces
-    const usernameRegex = /^\S+$/;
+    let usernameRegex = /^\S+$/;
 
 
     // Password:
     // At least 8 characters
     // and contains at least one number
-    const passwordRegex = /^(?=.*\d).{8,}$/;
+    let passwordRegex = /^(?=.*\d).{8,}$/;
 
 
     // Phone:
     // Exactly 10 digits
     // Starts with 07
-    const phoneRegex = /^07\d{8}$/;
+    let phoneRegex = /^07\d{8}$/;
 
 
 
@@ -95,9 +95,9 @@ form.onsubmit = function (event) {
 
     // Get saved data
 
-    const savedOrder = localStorage.getItem("order");
+    let savedOrder = localStorage.getItem("order");
 
-    const savedUsername = sessionStorage.getItem("username");
+   let savedUsername = sessionStorage.getItem("username");
 
 
 
