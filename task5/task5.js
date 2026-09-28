@@ -34,16 +34,23 @@ addButton.onclick = function () {
 
 
 function deleteTask(text) {
-
+//هات اسم الـ task الذي ضغطت على Delete بجانبه وخزّنه في متغير اسمه task.
+// معرفه اسم التاسك
     let task = text.parentElement.firstChild.textContent;
 
+
+// هون بدي اعرف مكان التاسك بال array
     let index = arr.indexOf(task);
 
+
+    // منشيك هون حتى نحذف الاندكس من الاري بدءا باندكس 1
     if (index !== -1) {
         arr.splice(index, 1);
     }
-
+//   بعد الحذف بنحفظ الاري الجديده ب لوكال عشان نحدثه وياخذ البيانات الجديده
+//  لانه بكون لسا محتفظ بالبيانات القديمه
+//منحدث ال local storage  ومنحول الاري ال سترينغ نص حتى نقدر نخزنها
     localStorage.setItem("task", JSON.stringify(arr));
-
+// حذفه من الصفحه
     text.parentElement.remove();
 }
